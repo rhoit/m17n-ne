@@ -15,14 +15,14 @@ Nepali input method varient for ibus-m17n.
 
 * Know issues
 
-  - Shortcut keys aren't crossed mapped
+  - Shortcut keys aren't crossed mapped since [[https://code.google.com/p/ibus/issues/detail?id=1558][xsetkbmap]] is run by ibus
 
 * History
 
-  After the change in =ibus= architecture from version =1.4= to =1.5=,
-  it has been difficult for alternative layout users. We were left
-  with very little choice either find the replacement or freeze the
-  last workable version.
+  After the changes in =ibus= architecture from version =1.4= to
+  =1.5=, it has been difficult for alternative layout users. We were
+  left with very little choice either find the replacement or freeze
+  the last workable version.
 
   As I froze my package for last 2 years, compatibility have slowely
   started to break as the new version of the ecosystem are rolled out.
