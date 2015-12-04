@@ -1,0 +1,24 @@
+#+TITLE: m17n-ne variants
+#+DATE: Friday, Dec 04 2015
+#+STARTUP: showall
+
+Dvorak layout hackish version for nepali input method for ibus-m17n.
+
+* History
+
+After the change in =ibus= architecture from version =1.4= to =1.5=,
+it has been difficult for alternative layout users. We are left with
+very little choice either find the replacement or changed waited for
+fixes by freezing the last workable version.
+
+I didn't have any motives to search for replacement, So I froze the
+version. But almost after 2 years compatibility have started to break
+as the new version of the ecosystem are rolled out.
+
+* How to install
+
+  #+begin_bash
+  # make install
+  #+end_bash
+
+  restart the ibus-daemon for changes to appear
