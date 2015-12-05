@@ -3,7 +3,7 @@
 #+DATE: Friday, Dec 04 2015
 #+STARTUP: showall
 
-Nepali input method varient for ibus-m17n.
+Nepali input method variant for ibus-m17n.
 
 * How to install
 
@@ -31,21 +31,34 @@ Nepali input method varient for ibus-m17n.
 ** How to install
 
    for now it only works for dvorak layout, see =hijack.sh= script to
-   change to other layout.
+   change to other layout. Here is back story of endeavor.
 
    #+begin_src bash
      # make hijack
    #+end_src
 
-* History
+* About layouts
 
-  After the changes in =ibus= architecture from version =1.4= to
-  =1.5=, it has been difficult for alternative layout users. We were
-  left with very little choice either find the replacement or freeze
-  the last workable version.
+** lipi
 
-  As I froze my package for last 2 years, compatibility have slowely
-  started to break as the new version of the ecosystem are rolled out.
-  Fed up with unexpected application =core-dump= or temination, and
-  Incompatiblity with =Gtk3.IBus= force me to update =ibus= without
-  the avail solution.
+*** Why ?
+
+    - Romanized layout few symbol/punctuation unavailable, which results
+      in constant switching
+
+    - Vanilla Romanized isn't idiot proof
+
+    - Romanized layout was designed for fixed layout.
+
+*** Design
+
+    Lipi (लिपि) is originally based on *nepali romanized layout* for
+    reduce learning.
+
+**** obvious completion
+
+**** idiomatic completion
+
+     | normally | improvements |
+     |----------+--------------|
+     | traa     | traa         |
