@@ -13,8 +13,6 @@ Nepali input method varient for ibus-m17n.
 
   restart the *ibus* for changes to appear.
 
-  restarting *ibus* from /command line/
-
   #+begin_src bash
     $ ibus restart
   #+end_src
@@ -26,9 +24,9 @@ Nepali input method varient for ibus-m17n.
 
   as they say:
 
-  #+begin_verse
+  #+begin_quote
   *Go Away Or I Will Replace You With A Very Small Shell Script*
-  #+end_verse
+  #+end_quote
 
 ** How to install
 
