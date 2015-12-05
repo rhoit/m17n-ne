@@ -11,11 +11,33 @@ Nepali input method varient for ibus-m17n.
     # make install
   #+end_src
 
-  restart the ibus-daemon for changes to appear.
+  restart the *ibus* for changes to appear.
 
-* Know issues
+  restarting *ibus* from /command line/
 
-  - Shortcut keys aren't crossed mapped since [[https://code.google.com/p/ibus/issues/detail?id=1558][xsetkbmap]] is run by ibus
+  #+begin_src bash
+    $ ibus restart
+  #+end_src
+
+* Cross Map Hacks
+
+  Since *ibus* runs =setxkbmap= in background, which alternative
+  layout, is reset to *us* (qwerty).
+
+  as they say:
+
+  #+begin_verse
+  *Go Away Or I Will Replace You With A Very Small Shell Script*
+  #+end_verse
+
+** How to install
+
+   for now it only works for dvorak layout, see =hijack.sh= script to
+   change to other layout.
+
+   #+begin_src bash
+     # make hijack
+   #+end_src
 
 * History
 
