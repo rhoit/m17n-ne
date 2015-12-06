@@ -31,8 +31,8 @@ Nepali input method variant for ibus-m17n.
 
 *** Why ?
 
-    - quite a few symbol unavailable in romanized layout, resulting in
-      constant switching.
+    - Few frequently used symbol unavailable in romanized layout,
+      resulting in constant switching.
 
     - Vanilla Romanized isn't idiot proof
 
@@ -40,19 +40,25 @@ Nepali input method variant for ibus-m17n.
 
 *** Design
 
-    Lipi (लिपि) is *not* the /complete/ _new_ layout, based on *nepali
-    romanized layout*, with certian improvements.
+    Lipi (लिपि) is *not* the /complete/ _new_ layout, it is based on
+    *nepali romanized layout*.
 
-**** composite completion
+**** phonetic completion
 
-    | character | normally         | completion             |
-    |-----------+------------------+------------------------|
-    | त्र        | sequence: t/r    | sequence: traa         |
-    |           | tokens: त + ् + र | tokens: त +  र + ा + ा |
-    | क्ष        | sequence: k/z    | sequence: chyaa        |
-    |           | tokens: क + ् + ष | tokens: छ +  ह + ा + ा |
-    | ज्ञ        | sequence: j/Y    | sequence: gyaa, jyaa   |
-    |           | tokens: ज + ् + ञ | tokens: ग + य + ा + ा  |
+     *Note*: most of normal methods also works, see exits column
+
+     | symbol | in romanized       | exist | completion                 |
+     |--------+--------------------+-------+----------------------------|
+     | त्र     | *sequence*: 't/r'  | Yes   | *sequence*: 'traa'         |
+     |        | *tokens*: त + ् + र |       | *tokens*: त +  र + ा + ा   |
+     | क्ष     | *sequence*: 'k/z'  | Yes   | *sequence*: 'chyaa'        |
+     |        | *tokens*: क + ् + ष |       | *tokens*: छ +  ह + ा + ा   |
+     | ज्ञ     | *sequence*: 'j/Y'  | Yes   | *sequence*: 'gyaa', 'jyaa' |
+     |        | *tokens*: ज + ् + ञ |       | *tokens*: ग + य + ा + ा    |
+     |        |                    |       | *tokens*: ज + य + ा + ा    |
+     | ऋ      | *sequence*: 'Z'    | No    | *sequence*: rii            |
+     |        | *tokens*: ऋ        |       | *tokens*:  र +  ि + ि      |
+
 
 **** zero width (non-)joiner
 
@@ -80,6 +86,8 @@ Nepali input method variant for ibus-m17n.
      ओ ≠ अ + ा + ो
 
      ऐ ≠ ए + े
+
+     ॐ ≠ ऊ + ँ
      #+end_quote
 
      Now its all *right*. No more hunt and peak आ, ओ, ऐ when
