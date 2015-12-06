@@ -1,6 +1,7 @@
 #+TITLE: m17n-ne
 #+DESCRIPTION: ne-NP im varient for ibus-m17n
 #+DATE: Friday, Dec 04 2015
+#+OPTIONS: num:t toc:nil
 #+STARTUP: showall
 
 Nepali input method variant for ibus-m17n.
@@ -46,29 +47,45 @@ Nepali input method variant for ibus-m17n.
     Lipi (लिपि) is *not* the /complete/ _new_ layout, it is based on
     *nepali romanized layout*.
 
+
+**** freeing up symbols
+
+     | symbol | in romanized    | in lipi              | alternatives in lipi    |
+     |--------+-----------------+----------------------+-------------------------|
+     | ङ      | *sequence*: '<' | Changed to 'Z'       | *sequence*: 'Z'         |
+     |        | *tokens*: ङ     | freed '<'            | *tokens*:  ङ            |
+     | ऋ      | *sequence*: 'Z' | Changed to phonetic  | *sequence*: 'rii'       |
+     |        | *tokens*: ऋ     | replaced by 'ङ'      | *tokens*:  र +  ि + ि   |
+     | इ      | *sequence*: '[' | Changed to phonetic  | *sequence*: ie          |
+     |        | *tokens*: इ     | freed '['            | *tokens*:  ि + े         |
+     | ई      | *sequence*: '{' | Changed to phonetic  | *sequence*: 'iee'       |
+     |        | *tokens*: ई     | freed '{'            | *tokens*:  ि + े + े      |
+     | ए      | *sequence*: ']' | Changed to 'E'       | *sequence*: 'E'         |
+     |        | *tokens*: ए     | freed ']'            | *tokens*:  ए            |
+     | ै       | *sequence*: 'E' | Changed to idiomatic | *sequence*: 'ee'        |
+     |        | *tokens*: ै      | replaced by 'ए'      | *tokens*:  े + े          |
+     | ऐ      | *sequence*: '}' | Changed to idiomatic | *sequence*: 'Ee'        |
+     |        | *tokens*: ऐ     | freed ']'            | *tokens*:  ए + े         |
+     | ॐ      | *sequence*: '\' | Changed to idiomatic | *sequence*: 'FV', 'ffV' |
+     |        | *tokens*: ऐ     | freed '\'            | *tokens*:  ऊ + ँ         |
+     |        |                 |                      | *tokens*: उ + उ  + ँ     |
+
+
 **** phonetic completion
 
-     *Note*: most of normal methods also works, see exits column
+     *NOTE*: most of romanized methods also works, see *still works*
+     column
 
-     | symbol | in romanized       | in lipi        | alternatives in lipi       |
-     |--------+--------------------+----------------+----------------------------|
-     | ऋ      | *sequence*: 'Z'    | Changed to 'ङ' | *sequence*: 'rii'          |
-     |        | *tokens*: ऋ        |                | *tokens*:  र +  ि + ि      |
-     | इ      | *sequence*: '['    | No, free '['   | *sequence*: ie             |
-     |        | *tokens*: इ        |                | *tokens*:  ि + े            |
-     | ई      | *sequence*: '{'    | No, free '{'   | *sequence*: 'iee'          |
-     |        | *tokens*: ई        |                | *tokens*:  ि + े + े         |
-     | ए      | *sequence*: ']'    | No, free ']'   | *sequence*: 'E'            |
-     |        | *tokens*: ए        |                | *tokens*:  ए               |
-     | ऐ      | *sequence*: '}'    | No, free '}'   | *sequence*: 'Ee'           |
-     |        | *tokens*: ऐ        |                | *tokens*:  ए + े            |
-     | त्र     | *sequence*: 't/r'  | Yes            | *sequence*: 'traa'         |
-     |        | *tokens*: त + ् + र |                | *tokens*: त +  र + ा + ा   |
-     | क्ष     | *sequence*: 'k/z'  | Yes            | *sequence*: 'chyaa'        |
-     |        | *tokens*: क + ् + ष |                | *tokens*: छ +  ह + ा + ा   |
-     | ज्ञ     | *sequence*: 'j/Y'  | Yes            | *sequence*: 'gyaa', 'jyaa' |
-     |        | *tokens*: ज + ् + ञ |                | *tokens*: ग + य + ा + ा    |
-     |        |                    |                | *tokens*: ज + य + ा + ा    |
+     | symbol | in romanized       | still works | alternatives in lipi       |
+     |--------+--------------------+-------------+----------------------------|
+     | त्र     | *sequence*: 't/r'  | Yes         | *sequence*: 'traa'         |
+     |        | *tokens*: त + ् + र |             | *tokens*: त +  र + ा + ा   |
+     | क्ष     | *sequence*: 'k/z'  | Yes         | *sequence*: 'chyaa'        |
+     |        | *tokens*: क + ् + ष |             | *tokens*: छ +  ह + ा + ा   |
+     | ज्ञ     | *sequence*: 'j/Y'  | Yes         | *sequence*: 'gyaa', 'jyaa' |
+     |        | *tokens*: ज + ् + ञ |             | *tokens*: ग + य + ा + ा    |
+     |        |                    |             | *tokens*: ज + य + ा + ा    |
+
 
 **** zero width (non-)joiner
 
@@ -96,6 +113,8 @@ Nepali input method variant for ibus-m17n.
      ओ ≠ अ + ा + ो
 
      ऐ ≠ ए + े
+
+     ै ≠ े + े
 
      ॐ ≠ ऊ + ँ
      #+end_quote
