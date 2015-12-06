@@ -27,6 +27,9 @@ Nepali input method variant for ibus-m17n.
 
 * About layouts
 
+  We provived some of the layout not offered by the *m17n-db*.
+  m17n provides the handy way to add, layout see [[http://www.nongnu.org/m17n/manual-en/index.html][tutorial]].
+
 ** lipi
 
 *** Why ?
