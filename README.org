@@ -11,7 +11,7 @@ Nepali input method variant for ibus-m17n.
 ** Requirements
 
    | system       | supporting ibus     |
-   | dependencies | *ibus*, *ibus-m17n* |
+   | dependencies | *ibus*, *m17n-db*   |
 
 
 ** Install
