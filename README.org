@@ -50,18 +50,25 @@ Nepali input method variant for ibus-m17n.
 
      *Note*: most of normal methods also works, see exits column
 
-     | symbol | in romanized       | exist | completion                 |
-     |--------+--------------------+-------+----------------------------|
-     | त्र     | *sequence*: 't/r'  | Yes   | *sequence*: 'traa'         |
-     |        | *tokens*: त + ् + र |       | *tokens*: त +  र + ा + ा   |
-     | क्ष     | *sequence*: 'k/z'  | Yes   | *sequence*: 'chyaa'        |
-     |        | *tokens*: क + ् + ष |       | *tokens*: छ +  ह + ा + ा   |
-     | ज्ञ     | *sequence*: 'j/Y'  | Yes   | *sequence*: 'gyaa', 'jyaa' |
-     |        | *tokens*: ज + ् + ञ |       | *tokens*: ग + य + ा + ा    |
-     |        |                    |       | *tokens*: ज + य + ा + ा    |
-     | ऋ      | *sequence*: 'Z'    | No    | *sequence*: rii            |
-     |        | *tokens*: ऋ        |       | *tokens*:  र +  ि + ि      |
-
+     | symbol | in romanized       | in lipi        | alternatives in lipi       |
+     |--------+--------------------+----------------+----------------------------|
+     | ऋ      | *sequence*: 'Z'    | Changed to 'ङ' | *sequence*: 'rii'          |
+     |        | *tokens*: ऋ        |                | *tokens*:  र +  ि + ि      |
+     | इ      | *sequence*: '['    | No, free '['   | *sequence*: ie             |
+     |        | *tokens*: इ        |                | *tokens*:  ि + े            |
+     | ई      | *sequence*: '{'    | No, free '{'   | *sequence*: 'iee'          |
+     |        | *tokens*: ई        |                | *tokens*:  ि + े + े         |
+     | ए      | *sequence*: ']'    | No, free ']'   | *sequence*: 'E'            |
+     |        | *tokens*: ए        |                | *tokens*:  ए               |
+     | ऐ      | *sequence*: '}'    | No, free '}'   | *sequence*: 'Ee'           |
+     |        | *tokens*: ऐ        |                | *tokens*:  ए + े            |
+     | त्र     | *sequence*: 't/r'  | Yes            | *sequence*: 'traa'         |
+     |        | *tokens*: त + ् + र |                | *tokens*: त +  र + ा + ा   |
+     | क्ष     | *sequence*: 'k/z'  | Yes            | *sequence*: 'chyaa'        |
+     |        | *tokens*: क + ् + ष |                | *tokens*: छ +  ह + ा + ा   |
+     | ज्ञ     | *sequence*: 'j/Y'  | Yes            | *sequence*: 'gyaa', 'jyaa' |
+     |        | *tokens*: ज + ् + ञ |                | *tokens*: ग + य + ा + ा    |
+     |        |                    |                | *tokens*: ज + य + ा + ा    |
 
 **** zero width (non-)joiner
 
