@@ -5,7 +5,15 @@
 
 Nepali input method variant for ibus-m17n.
 
-* How to install
+* Getting It
+
+** Requirements
+
+   | system       | supporting ibus     |
+   | dependencies | *ibus*, *ibus-m17n* |
+
+
+** Install
 
   #+begin_src bash
     # make install
@@ -16,6 +24,66 @@ Nepali input method variant for ibus-m17n.
   #+begin_src bash
     $ ibus restart
   #+end_src
+
+* About layouts
+
+** lipi
+
+*** Why ?
+
+    - quite a few symbol unavailable in romanized layout, resulting in
+      constant switching.
+
+    - Vanilla Romanized isn't idiot proof
+
+    - Romanized layout was designed for fixed layout.
+
+*** Design
+
+    Lipi (लिपि) is *not* the /complete/ _new_ layout, based on *nepali
+    romanized layout*, with certian improvements.
+
+**** composite completion
+
+    | character | normally         | completion             |
+    |-----------+------------------+------------------------|
+    | त्र        | sequence: t/r    | sequence: traa         |
+    |           | tokens: त + ् + र | tokens: त +  र + ा + ा |
+    | क्ष        | sequence: k/z    | sequence: chyaa        |
+    |           | tokens: क + ् + ष | tokens: छ +  ह + ा + ा |
+    | ज्ञ        | sequence: j/Y    | sequence: gyaa, jyaa   |
+    |           | tokens: ज + ् + ञ | tokens: ग + य + ा + ा  |
+
+**** zero width (non-)joiner
+
+     Most of us never knew the secret of typing "न्‍न" since you always
+     got "न्न". Problem was quite there was separate separate key
+     assigned to *Zero Width Joiner (ZWJ)*, which was invisible
+     cumbersome to find!
+
+     | sequence | tokens | result  |
+     |----------+--------+---------|
+     | /        | ्       | ्        |
+     | //       | ् + ्    | ् + ZWJ  |
+     | ///      | ् + ् + ् | ् + ZNWJ |
+
+
+**** idiomatic corrections
+
+     Since we always knew these were wrong!
+
+     #+begin_quote
+     आ ≠ अ + ा
+
+     ओ ≠ अ + ो
+
+     ओ ≠ अ + ा + ो
+
+     ऐ ≠ ए + े
+     #+end_quote
+
+     Now its all *right*. No more hunt and peak आ, ओ, ऐ when
+     *spell-checker* will not mark you wrong.
 
 * Cross Map Hacks
 
@@ -36,29 +104,3 @@ Nepali input method variant for ibus-m17n.
    #+begin_src bash
      # make hijack
    #+end_src
-
-* About layouts
-
-** lipi
-
-*** Why ?
-
-    - Romanized layout few symbol/punctuation unavailable, which results
-      in constant switching
-
-    - Vanilla Romanized isn't idiot proof
-
-    - Romanized layout was designed for fixed layout.
-
-*** Design
-
-    Lipi (लिपि) is originally based on *nepali romanized layout* for
-    reduce learning.
-
-**** obvious completion
-
-**** idiomatic completion
-
-     | normally | improvements |
-     |----------+--------------|
-     | traa     | traa         |
