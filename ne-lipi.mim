@@ -72,26 +72,30 @@
   ("z" ?ष) ("SS" ?श) ("SSS" ?ष)
   ("Z" ?ङ) ("xM" "डं") ("xMM" ?ङ)
 
-  ;; composite
-  ("aa" ?आ) ("Ha" ?आ)
-  ("na" "ना") ("naa" ?ङ)
-  ("ll" "लल") ("lll" ?ळ)
-
-  ("LL" ?ऊ)  
-
+  ;; punctuation
   ("." ?।)
   (".." ?॥)
 
+  ;; halanta
   ("/" ?्)
   ("//" "्‍") ;; ZWJ
   ("///" "्‌") ;; ZWNJ
+
+  ;; composite 
+  ("aa" ?आ) ("Ha" ?आ)
+  ("na" "ना") ("naa" ?ङ)
+  ("LL" ?ऊ)  
+
 
   ;; rarely used symbols
   ("~~" ?ऽ)
   ("LLV" ?ॐ)
   ("ri" "रि") ("rii" ?ऋ)
+  ("ll" "लल") ("lll" ?ळ)
 
-  ;; composite characters
+  ;; conjuction characters
+  ("sh" "सह") ("shr" "सहर") ("shre" "सहरे") ("shree" "श्र")
+  ("dh" "दह") ("dhy" "दहय") ("dhya" "दहया") ("dhyaa" "द्य")
   ("tr" "तर") ("tra" "तरा") ("traa" "त्र")
   ("ch" "छह") ("chy" "छहय") ("chya" "छहया") ("chyaa" "क्ष")
   ("gy" "गय") ("gya" "गया") ("gyaa" "ज्ञ")
