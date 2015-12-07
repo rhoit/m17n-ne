@@ -1,16 +1,14 @@
-;; ne-lipi.mim -- Nepali romanized layout
+;; ne-lipi.mim -- Programmers Nepali layout 
 ;; Copyright (c) 2015 rho <rho.rhoit@gmail.com>
 
 (input-method ne lipi)
 
 (title "Nepali")
 (author "rho <rho.rhoit@gmail.com>")
-(description "Nepali romanized layout")
+(description "Programmers Nepali layout")
 
 (map
  (trans
-  ("`" ?`)
-  ("~" ?ऽ)
   ("1" ?१)
   ("2" ?२)
   ("3" ?३)
@@ -22,7 +20,7 @@
   ("9" ?९)
   ("0" ?०)
   ("a" ?ा)
-  ("A" ?आ) ("Ha" ?आ)
+  ("A" ?ए) ("AA" ?ऐ) ("Ae" ?ऐ)
   ("b" ?ब)
   ("B" ?भ)
   ("c" ?छ)
@@ -30,23 +28,23 @@
   ("d" ?द)
   ("D" ?ध)
   ("e" ?े) ("ee" ?ै)
-  ("E" ?ए) ("EE" ?ऐ) ("Ee" ?ऐ)
-  ("f" ?उ)
-  ("F" ?ऊ) ("ff" ?ऊ)
+  ("E" ?ै)
+  ("f" ?इ) ("ie" ?इ)
+  ("F" ?ई) ("ff" ?ई) ("iee" ?ई)
   ("g" ?ग)
   ("G" ?घ)
   ("h" ?ह)
   ("H" ?अ)
   ("i" ?ि)
-  ("I" ?ी)
+  ("I" ?ी) ("ii" ?ी)
   ("j" ?ज)
   ("J" ?झ)
   ("k" ?क)
   ("K" ?ख)
   ("l" ?ल)
-  ("L" ?ळ)
+  ("L" ?उ)
   ("m" ?म)
-  ("M" ?ं)
+  ("M" ?ं) ("MM" ?ं)
   ("n" ?न)
   ("N" ?ण)
   ("o" ?ो) ("ao" ?ो) ("oa" ?ो)
@@ -64,28 +62,33 @@
   ("u" ?ु)
   ("U" ?ू) ("uu" ?ू)
   ("v" ?व)
-  ("V" ?ँ)
+  ("V" ?ँ) ("VV" ?ँ)
   ("w" ?ौ) ("oo" ?ौ)
   ("W" ?औ) ("Ho" ?औ)
   ("x" ?ड)
   ("X" ?ढ)
   ("y" ?य)
   ("Y" ?ञ)
-  ("z" ?ष)
-  ("Z" ?ङ)
+  ("z" ?ष) ("SS" ?श) ("SSS" ?ष)
+  ("Z" ?ङ) ("xM" "डं") ("xMM" ?ङ)
+
+  ;; composite
+  ("aa" ?आ) ("Ha" ?आ)
+  ("na" "ना") ("naa" ?ङ)
+  ("ll" "लल") ("lll" ?ळ)
+
+  ("LL" ?ऊ)  
 
   ("." ?।)
   (".." ?॥)
-
-  ("ie" ?इ)
-  ("iee" ?ई)
 
   ("/" ?्)
   ("//" "्‍") ;; ZWJ
   ("///" "्‌") ;; ZWNJ
 
   ;; rarely used symbols
-  ("FV" ?ॐ) ("ffV" ?ॐ)
+  ("~~" ?ऽ)
+  ("LLV" ?ॐ)
   ("ri" "रि") ("rii" ?ऋ)
 
   ;; composite characters
