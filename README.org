@@ -31,96 +31,190 @@ Nepali input method variant for ibus-m17n.
   We provived some of the layout not offered by the *m17n-db*.
   m17n provides the handy way to add, layout see [[http://www.nongnu.org/m17n/manual-en/index.html][tutorial]].
 
-** lipi
-
-*** Why ?
-
-    - Few frequently used symbol unavailable in romanized layout,
-      resulting in constant switching.
-
-    - Vanilla Romanized isn't idiot proof
-
-    - Romanized layout was designed for fixed layout.
-
-*** Design
-
-    Lipi (लिपि) is *not* the /complete/ _new_ layout, it is based on
-    *nepali romanized layout*.
+  | Layout | Description                                       |
+  |--------+---------------------------------------------------|
+  | lipi   | lipi (लिपि) is designed for programmer/localizers |
+  # | rom-imp | improvement with 99% backward compatibility       |
 
 
-**** freeing up symbols
+** Why ?
 
-     | symbol | in romanized    | in lipi              | alternatives in lipi    |
-     |--------+-----------------+----------------------+-------------------------|
-     | ङ      | *sequence*: '<' | Changed to 'Z'       | *sequence*: 'Z'         |
-     |        | *tokens*: ङ     | freed '<'            | *tokens*:  ङ            |
-     | ऋ      | *sequence*: 'Z' | Changed to phonetic  | *sequence*: 'rii'       |
-     |        | *tokens*: ऋ     | replaced by 'ङ'      | *tokens*:  र +  ि + ि   |
-     | इ      | *sequence*: '[' | Changed to phonetic  | *sequence*: ie          |
-     |        | *tokens*: इ     | freed '['            | *tokens*:  ि + े         |
-     | ई      | *sequence*: '{' | Changed to phonetic  | *sequence*: 'iee'       |
-     |        | *tokens*: ई     | freed '{'            | *tokens*:  ि + े + े      |
-     | ए      | *sequence*: ']' | Changed to 'E'       | *sequence*: 'E'         |
-     |        | *tokens*: ए     | freed ']'            | *tokens*:  ए            |
-     | ै       | *sequence*: 'E' | Changed to idiomatic | *sequence*: 'ee'        |
-     |        | *tokens*: ै      | replaced by 'ए'      | *tokens*:  े + े          |
-     | ऐ      | *sequence*: '}' | Changed to idiomatic | *sequence*: 'Ee'        |
-     |        | *tokens*: ऐ     | freed ']'            | *tokens*:  ए + े         |
-     | ॐ      | *sequence*: '\' | Changed to idiomatic | *sequence*: 'FV', 'ffV' |
-     |        | *tokens*: ऐ     | freed '\'            | *tokens*:  ऊ + ँ         |
-     |        |                 |                      | *tokens*: उ + उ  + ँ     |
+   - Few frequently used symbol (i.e. "~!@#$%^&*(){}<>") unavailable
+     in romanized layout, resulting in constant switching, which is
+     major headache for *programmers* and *localizers*.
+
+   - Vanilla Romanized doesn't do ovious corrections.
+
+   - Romanized layout was designed for fixed layout, where composite
+     entries are not possible
+
+** Design
+
+   | Layout  | ZWJ | phonetic | visual | vowel | remap |
+   |---------+-----+----------+--------+-------+-------|
+   | lipi    |   3 |       12 |      5 |     8 |    10 |
+   # | rom-imp |   3 |       12 |      5 |     8 |     0 |
 
 
-**** phonetic completion
 
-     *NOTE*: most of romanized methods also works, see *still works*
-     column
+*** escape sequence
 
-     | symbol | in romanized       | still works | alternatives in lipi       |
-     |--------+--------------------+-------------+----------------------------|
-     | त्र     | *sequence*: 't/r'  | Yes         | *sequence*: 'traa'         |
-     |        | *tokens*: त + ् + र |             | *tokens*: त +  र + ा + ा   |
-     | क्ष     | *sequence*: 'k/z'  | Yes         | *sequence*: 'chyaa'        |
-     |        | *tokens*: क + ् + ष |             | *tokens*: छ +  ह + ा + ा   |
-     | ज्ञ     | *sequence*: 'j/Y'  | Yes         | *sequence*: 'gyaa', 'jyaa' |
-     |        | *tokens*: ज + ् + ञ |             | *tokens*: ग + य + ा + ा    |
-     |        |                    |             | *tokens*: ज + य + ा + ा    |
+    Use escape sequence backward slash (=\=) for accessing default
+    mapping. The all other mapping for the backward slash =\= has
+    *revoked* in all layouts. e.g. for typing =/= use =\/=.
 
+*** zero width (non-)joiner
 
-**** zero width (non-)joiner
+    Most of us never knew the secret of typing "न्‍न" since you always
+    got "न्न". Problem was special character *Zero Width Joiner (ZWJ)*,
+    which was invisible cumbersome to find!
 
-     Most of us never knew the secret of typing "न्‍न" since you always
-     got "न्न". Problem was quite there was separate separate key
-     assigned to *Zero Width Joiner (ZWJ)*, which was invisible
-     cumbersome to find!
+    *NOTE*: If you see no different between "न्‍न" and "न्न" your have a
+    smart renderer.
 
-     | sequence | tokens | result  |
-     |----------+--------+---------|
-     | /        | ्       | ्        |
-     | //       | ् + ्    | ् + ZWJ  |
-     | ///      | ् + ् + ् | ् + ZNWJ |
+   | # | Sequence | Tokens | Result  |
+   |---+----------+--------+---------|
+   | 1 | /        | ्       | ्        |
+   | 2 | //       | ् + ्    | ् + ZWJ  |
+   | 3 | ///      | ् + ् + ् | ् + ZNWJ |
 
 
-**** idiomatic corrections
+*** phonetic completion
 
-     Since we always knew these were wrong!
+    Most of the people have hard time remembering the sequence for
+    special characters, here we provide phonetic/trasliterative
+    completions. And wait, *old method still works and there few more
+    too!*
 
-     #+begin_quote
-     आ ≠ अ + ा
+    *NOTE*: If you see no different between "त्र" and "त्‌र" or "श्र" and
+    "श्‌र" your have a some problem renderer
 
-     ओ ≠ अ + ो
+    |  # | Symbol | in Romanized       | Alternatives                   |
+    |----+--------+--------------------+--------------------------------|
+    |  1 | इ      | *key*: '['         | *sequence*: 'ie'               |
+    |    |        |                    | *tokens*: ि + े                 |
+    |  2 | ई      | *key*: '{'         | *sequence*: 'iee'              |
+    |    |        |                    | *tokens*: ि + े + े              |
+    |  3 | त्र     | *sequence*: 't/r'  | *sequence*: 'traa'             |
+    |    |        | *tokens*: त + ् + र | *tokens*: त +  र + ा + ा       |
+    |  4 | क्ष     | *sequence*: 'k/z'  | *sequence*: 'chyaa'            |
+    |    |        | *tokens*: क + ् + ष | *tokens*: छ +  ह + ा + ा       |
+    |  5 | ज्ञ     | *sequence*: 'j/Y'  | *sequence*: 'gyaa', 'jyaa'     |
+    |    |        | *tokens*: ज + ् + ञ | *tokens*: ग + य + ा + ा        |
+    |    |        |                    | *tokens*: ज + य + ा + ा        |
+    |  6 | श्र     | *sequence*: 't/r'  | *sequence*: 'shree'            |
+    |    |        | *tokens*: श + ् + र | *sequence*: स + ह +  र +  े +  े |
+    |  7 | द्य     | *sequence*: 'd/y'  | *sequence*: dhyaa              |
+    |    |        | *tokens*: द + ् + य | *tokens*: द +  ह + य + ा + ा   |
+    |  8 | ङ      | *key*: '<'         | *sequence*: naa                |
+    |    |        |                    | *tokens*: ड + ा  + ा           |
+    |  9 | ऋ      | *key*: 'Z'         | *sequence*: 'rii'              |
+    |    |        |                    | *tokens*:  र +  ि + ि          |
+    | 10 | ळ      | *key*: 'L'         | *sequence*: 'lll'              |
+    |    |        |                    | *tokens*: ल + ल + ल            |
+    | 11 | ऌ      | None               | *sequence*: 'lree'             |
+    |    |        |                    | *tokens*: ल + र + े + े          |
+    | 12 | ॡ      | None               | *sequence*: 'lreee'            |
+    |    |        |                    | *tokens*: ल + र + े +  े + े      |
 
-     ओ ≠ अ + ा + ो
+*** Visual Similar Corrections
 
-     ऐ ≠ ए + े
+    While writing by hand, each *glyph* is seen separately but
+    *ironically* each section is character on its own, combined to
+    create a new character.
 
-     ै ≠ े + े
+    for example:
 
-     ॐ ≠ ऊ + ँ
-     #+end_quote
+    #+begin_quote
+    आ ≠ अा (अ + ा)
 
-     Now its all *right*. No more hunt and peak आ, ओ, ऐ when
-     *spell-checker* will not mark you wrong.
+    ओ ≠ अो (अ + ो)
+
+    ऐ ≠ एे (ए + े)
+    #+end_quote
+
+    But, in computers characters is represented by code, which is
+    infact different even though they looks same/similar. This is why
+    *spell checker* flags them, now its all *right* to make those
+    mistakes. No more hunt and peak for आ, ओ, औ, ऐ.
+
+    | # | Symbol | Sequence        |
+    |---+--------+-----------------|
+    | 1 | आ      | अ + ा           |
+    | 2 | ओ      | अ + ो           |
+    |   |        | अ +  ो          |
+    |   |        | अ + ा + ो       |
+    | 3 | औ      | अ +  ौ          |
+    |   |        | अ +  ो +  े      |
+    |   |        | अ  +  े +  ो     |
+    |   |        | अ  +  ा +  ै     |
+    |   |        | अ  +  ा +  े +  े |
+    | 4 | ऐ      | ए + े            |
+    | 5 | ॐ      | ऊ + ँ            |
+
+
+*** Vowels
+**** semivowel sequence
+     Semivowel(diacritic) in sequence of 2 will create the independent
+     vowel form.
+
+     | # | Character | Sequence |
+     |---+-----------+----------|
+     | 1 | आ         | ा +  ा   |
+     | 2 | इ         | ि + ि    |
+     | 3 | ई         | ी + ी    |
+     | 4 | उ         | ु + ु      |
+     | 5 | ऊ         | ू +  ू     |
+     | 6 | ए         | े + े      |
+     | 7 | ऐ         | ै + ै      |
+     | 8 | ओ         | ो + ो    |
+     | 9 | औ         | ौ + ौ    |
+
+**** higher vowel
+
+     independent vowel followed by semivowel.
+
+     | # | Character | Sequence |
+     |---+-----------+----------|
+     | 1 | आ         | अ + ा    |
+     | 2 | ई         | ई + ि    |
+     |   |           | ई + ी    |
+     | 3 | ऊ         | उ + ु     |
+     |   |           | उ +  ू    |
+     | 4 | ऐ         | ए + े     |
+     |   |           | ए + ै     |
+     | 5 | औ         | ओ + ो    |
+     |   |           | ओ + ौ    |
+
+**** Idiomatic completions
+
+     | # | Symbol | Sequence |
+     |---+--------+----------|
+     | 1 | ओ      | अ +  े    |
+     | 2 | औ      | अ +  ै    |
+     | 3 | ङ      | ड  + ं + ं |
+
+*** remap
+
+    We have remapped some of the symbols specially in *lipi* layout.
+
+    *NOTE*: This section is not applied for all layouts.
+
+    |  # | Symbol | in Romanized |       |          |         |            |
+    |----+--------+-----------+-------+----------+---------+------------|
+    |    |        |           | *key* | *visual* | *vowel* | *phonetic* |
+    |----+--------+-----------+-------+----------+---------+------------|
+    |  1 | आ      | A         |       | ा +  ा   | अ + ा   |            |
+    |  2 | उ      | f         | Y     |          | ु + ु     |            |
+    |  3 | ऊ      | F         |       |          | ू +  ू    |            |
+    |  4 | इ      | [         | f     |          | ि + ि   | ie         |
+    |  5 | ई      | {         | F     |          | ी + ी   | iee        |
+    |  6 | ए      | ]         | A     |          | े + े     |            |
+    |  7 | ऐ      | }         |       | ए + े     | ै + ै     |            |
+    |  8 | ऋ      | Z         |       |          |         | rii        |
+    |  9 | ङ      | <         | Z     |          |         | naa        |
+    | 10 | ॐ      | \         |       | ऊ + ँ     |         |            |
+
 
 * Cross Map Hacks
 
