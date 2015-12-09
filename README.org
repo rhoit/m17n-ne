@@ -172,13 +172,13 @@ Nepali input method variant for ibus-m17n.
 
 **** higher vowel
 
-     independent vowel followed by semivowel.
+     Independent vowel followed by semivowel.
 
      | # | Character | Sequence |
      |---+-----------+----------|
      | 1 | आ         | अ + ा    |
-     | 2 | ई         | ई + ि    |
-     |   |           | ई + ी    |
+     | 2 | ई         | इ + ि    |
+     |   |           | इ + ी    |
      | 3 | ऊ         | उ + ु     |
      |   |           | उ +  ू    |
      | 4 | ऐ         | ए + े     |
