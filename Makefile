@@ -2,8 +2,8 @@ all:
 	@echo Nothing here, use install
 
 install:
-	install -m 644 ne-lipi.mim /usr/share/m17n/ne-lipi.mim
-	install -m 644 ne-lipi.png /usr/share/m17n/icons/ne-lipi.png
+	install -m 644 mim/ne-lipi.mim /usr/share/m17n/ne-lipi.mim
+	install -m 644 icon/ne-lipi.png /usr/share/m17n/icons/ne-lipi.png
 
 uninstall:
 	rm -f /usr/share/m17n/ne-lipi.mim
