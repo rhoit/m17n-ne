@@ -10,8 +10,8 @@ Nepali input method variant for ibus-m17n.
 
 ** Requirements
 
-   | system       | supporting ibus     |
-   | dependencies | *ibus*, *m17n-db*   |
+   | *System*       | supporting ibus |
+   | *Dependencies* | ibus, m17n-db   |
 
 
 ** Install
@@ -46,15 +46,14 @@ Nepali input method variant for ibus-m17n.
    - Vanilla Romanized doesn't do ovious corrections.
 
    - Romanized layout was designed for fixed layout, where composite
-     entries are not possible
+     entries were not possible
 
 ** Design
 
-   | Layout  | ZWJ | phonetic | visual | vowel | remap |
-   |---------+-----+----------+--------+-------+-------|
-   | lipi    |   3 |       12 |      5 |     8 |    10 |
+   | Layout | Control Char | phonetic | visual | vowel | remap |
+   |--------+--------------+----------+--------+-------+-------|
+   | lipi   |            3 |       13 |      5 |     8 |    10 |
    # | rom-imp |   3 |       12 |      5 |     8 |     0 |
-
 
 
 *** escape sequence
@@ -63,7 +62,7 @@ Nepali input method variant for ibus-m17n.
     mapping. The all other mapping for the backward slash =\= has
     *revoked* in all layouts. e.g. for typing =/= use =\/=.
 
-*** zero width (non-)joiner
+*** unicode control character
 
     Most of us never knew the secret of typing "न्‍न" since you always
     got "न्न". Problem was special character *Zero Width Joiner (ZWJ)*,
@@ -87,35 +86,24 @@ Nepali input method variant for ibus-m17n.
     too!*
 
     *NOTE*: If you see no different between "त्र" and "त्‌र" or "श्र" and
-    "श्‌र" your have a some problem renderer
+    "श्‌र" your have a some problem in your renderer.
 
-    |  # | Symbol | in Romanized       | Alternatives                   |
-    |----+--------+--------------------+--------------------------------|
-    |  1 | इ      | *key*: '['         | *sequence*: 'ie'               |
-    |    |        |                    | *tokens*: ि + े                 |
-    |  2 | ई      | *key*: '{'         | *sequence*: 'iee'              |
-    |    |        |                    | *tokens*: ि + े + े              |
-    |  3 | त्र     | *sequence*: 't/r'  | *sequence*: 'traa'             |
-    |    |        | *tokens*: त + ् + र | *tokens*: त +  र + ा + ा       |
-    |  4 | क्ष     | *sequence*: 'k/z'  | *sequence*: 'chyaa'            |
-    |    |        | *tokens*: क + ् + ष | *tokens*: छ +  ह + ा + ा       |
-    |  5 | ज्ञ     | *sequence*: 'j/Y'  | *sequence*: 'gyaa', 'jyaa'     |
-    |    |        | *tokens*: ज + ् + ञ | *tokens*: ग + य + ा + ा        |
-    |    |        |                    | *tokens*: ज + य + ा + ा        |
-    |  6 | श्र     | *sequence*: 't/r'  | *sequence*: 'shree'            |
-    |    |        | *tokens*: श + ् + र | *sequence*: स + ह +  र +  े +  े |
-    |  7 | द्य     | *sequence*: 'd/y'  | *sequence*: dhyaa              |
-    |    |        | *tokens*: द + ् + य | *tokens*: द +  ह + य + ा + ा   |
-    |  8 | ङ      | *key*: '<'         | *sequence*: naa                |
-    |    |        |                    | *tokens*: ड + ा  + ा           |
-    |  9 | ऋ      | *key*: 'Z'         | *sequence*: 'rii'              |
-    |    |        |                    | *tokens*:  र +  ि + ि          |
-    | 10 | ळ      | *key*: 'L'         | *sequence*: 'lll'              |
-    |    |        |                    | *tokens*: ल + ल + ल            |
-    | 11 | ऌ      | None               | *sequence*: 'lree'             |
-    |    |        |                    | *tokens*: ल + र + े + े          |
-    | 12 | ॡ      | None               | *sequence*: 'lreee'            |
-    |    |        |                    | *tokens*: ल + र + े +  े + े      |
+    |  # | Symbol | in Romanized      | Alternatives               |
+    |----+--------+-------------------+----------------------------|
+    |  1 | इ      | *key*: '['        | *sequence*: 'ie'           |
+    |  2 | ई      | *key*: '{'        | *sequence*: 'iee'          |
+    |  3 | त्र     | *sequence*: 't/r' | *sequence*: 'traa'         |
+    |  4 | क्ष     | *sequence*: 'k/z' | *sequence*: 'chyaa'        |
+    |  5 | ज्ञ     | *sequence*: 'j/Y' | *sequence*: 'gyaa', 'jyaa' |
+    |  6 | श्र     | *sequence*: 't/r' | *sequence*: 'shree'        |
+    |  7 | द्य     | *sequence*: 'd/y' | *sequence*: dhyaa          |
+    |  8 | ङ      | *key*: '<'        | *sequence*: naa            |
+    |  9 | ळ      | *key*: 'L'        | *sequence*: 'lll'          |
+    | 10 | ऋ      | *key*: 'Z'        | *sequence*: 'rii'          |
+    | 11 | ॠ      | None              | *sequence*: 'riii'         |
+    | 12 | ऌ      | None              | *sequence*: 'lree'         |
+    | 13 | ॡ      | None              | *sequence*: 'lreee'        |
+
 
 *** Visual Similar Corrections
 
@@ -201,19 +189,19 @@ Nepali input method variant for ibus-m17n.
     *NOTE*: This section is not applied for all layouts.
 
     |  # | Symbol | in Romanized |       |          |         |            |
-    |----+--------+-----------+-------+----------+---------+------------|
-    |    |        |           | *key* | *visual* | *vowel* | *phonetic* |
-    |----+--------+-----------+-------+----------+---------+------------|
-    |  1 | आ      | A         |       | ा +  ा   | अ + ा   |            |
-    |  2 | उ      | f         | Y     |          | ु + ु     |            |
-    |  3 | ऊ      | F         |       |          | ू +  ू    |            |
-    |  4 | इ      | [         | f     |          | ि + ि   | ie         |
-    |  5 | ई      | {         | F     |          | ी + ी   | iee        |
-    |  6 | ए      | ]         | A     |          | े + े     |            |
-    |  7 | ऐ      | }         |       | ए + े     | ै + ै     |            |
-    |  8 | ऋ      | Z         |       |          |         | rii        |
-    |  9 | ङ      | <         | Z     |          |         | naa        |
-    | 10 | ॐ      | \         |       | ऊ + ँ     |         |            |
+    |----+--------+--------------+-------+----------+---------+------------|
+    |    |        |              | *key* | *visual* | *vowel* | *phonetic* |
+    |----+--------+--------------+-------+----------+---------+------------|
+    |  1 | आ      | A            |       | ा +  ा   | अ + ा   |            |
+    |  2 | उ      | f            | Y     |          | ु + ु     |            |
+    |  3 | ऊ      | F            |       |          | ू +  ू    |            |
+    |  4 | इ      | [            | f     |          | ि + ि   | ie         |
+    |  5 | ई      | {            | F     |          | ी + ी   | iee        |
+    |  6 | ए      | ]            | A     |          | े + े     |            |
+    |  7 | ऐ      | }            |       | ए + े     | ै + ै     |            |
+    |  8 | ऋ      | Z            |       |          |         | rii        |
+    |  9 | ङ      | <            | Z     |          |         | naa        |
+    | 10 | ॐ      | \            |       | ऊ + ँ     |         |            |
 
 
 * Cross Map Hacks
