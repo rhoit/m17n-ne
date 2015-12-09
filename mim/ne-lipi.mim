@@ -108,14 +108,13 @@
 
   ;; composite
   ("aa" ?आ) ("Ha" ?आ)
-  ("YY" ?ऊ)
+  ("Yu" ?ऊ) ("YY" ?ऊ)
 
   ;; rarely used symbols
   ("~~" ?ऽ)
   ("YV" ?ॐ) ("YYV" ?ॐ)
-  ("lr" "लर") ("lri" "लरि") ("lrii" ?ॡ)
-  ("ri" "रि") ("rii" ?ऋ)
-  ("riii" ?ॠ)
+  ("lr" "लर") ("lre" "लरे ") ("lree" ?ऌ) ("lreee" ?ॡ)
+  ("ri" "रि") ("rii" ?ऋ) ("riii" ?ॠ)
   ("ll" "लल") ("lll" ?ळ)
 
   ;; conjuction characters
