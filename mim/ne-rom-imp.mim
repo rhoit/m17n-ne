@@ -1,11 +1,11 @@
-;; ne-lipi.mim -- Programmers Nepali layout
+;; ne-rom-imp.mim -- Nepali romanized improved
 ;; Copyright (c) 2015 rho <rho.rhoit@gmail.com>
 
-(input-method ne lipi)
+(input-method ne rom-imp)
 
-(title "lipi")
+(title "romanized improved")
 (author "rho <rho.rhoit@gmail.com>")
-(description "Programmers Nepali layout")
+(description "Nepali romanized improved")
 
 (map
  (trans
@@ -29,8 +29,8 @@
   ("D" ?ध)
   ("e" ?े) ("ee" ?ए)
   ("E" ?ै) ("EE" ?ऐ)
-  ("f" ?इ) ("ie" ?इ)
-  ("F" ?ई) ("iee" ?ई) ("fi" ?ई) ("fI" ?ई)
+  ("f" ?उ)
+  ("F" ?ऊ) ("ff" ?ऊ)
   ("g" ?ग)
   ("G" ?घ)
   ("h" ?ह)
@@ -42,12 +42,11 @@
   ("k" ?क)
   ("K" ?ख)
   ("l" ?ल)
-  ("L" ?ञ)
+  ("L" ?ळ)
   ("m" ?म)
   ("M" ?ं) ("MM" ?ँ)
   ("n" ?न)
   ("N" ?ण)
-
   ("o" ?ो) ("oo" ?ओ) ("ao" ?ो) ("oa" ?ो)
 
   ;; ओ
@@ -69,7 +68,7 @@
   ("u" ?ु) ("uu" ?उ)
   ("U" ?ू) ("UU" ?ऊ)
   ("v" ?व)
-  ("V" ?ँ) ("VV" ?ँ)
+  ("V" ?ँ)
 
   ;; ौ
   ("w" ?ौ) ("ww" ?औ)
@@ -91,30 +90,36 @@
   ("x" ?ड)
   ("X" ?ढ)
   ("y" ?य)
-  ("Y" ?उ)
-  ("z" ?ए)
-  ("Z" ?ष)
+  ("Y" ?ञ)
+  ("z" ?ष)
+  ("Z" ?ऋ)
 
   ;; symbols
+  ("`" ?़)
+  ("~" ?ऽ)
+  ("$" "रु")
   ("." ?।)
-  (".." ?॥)
+  (">" ?॥) (".." ?॥)
+
+  ;; other symbols
+  ("[" ?इ) ("ie" ?इ)
+  ("{" ?ई) ("iee" ?इ) ("[i" ?ई) ("[I" ?ई)
+  ("]" ?ए)
+  ("}" ?ऐ) ("]]" ?ऐ) ("]e" ?ऐ) ("]E" ?ऐ)
 
   ;; unicode control character
   ("/" ?्)
   ("//" "्‍") ;; ZWJ
   ("///" "्‌") ;; ZWNJ
 
-  ;; composite
-  ("YY" ?ऊ) ("Yu" ?ऊ) ("YU" ?उ)
-  ("zz" ?ऐ) ("ze" ?ऐ) ("zE" ?ऐ)
-
   ;; ङ
+  ("<" ?ङ)
   ("xM" "डं") ("xMM" ?ङ)
   ("na" "ना") ("naa" ?ङ)
 
   ;; rarely used symbols
-  ("~~" ?ऽ)
-  ("YV" ?ॐ) ("YYV" ?ॐ) ("UUV" ?ॐ)
+  ("FV" ?ॐ) ("ffV" ?ॐ) ("UUV" ?ॐ)
+
   ("lr" "लर") ("lre" "लरे ") ("lree" ?ऌ) ("lreee" ?ॡ)
   ("ri" "रि") ("rii" ?ऋ) ("riii" ?ॠ)
   ("ll" "लल") ("lll" ?ळ)

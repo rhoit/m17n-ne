@@ -31,10 +31,10 @@ Nepali input method variant for ibus-m17n.
   We provived some of the layout not offered by the *m17n-db*.
   m17n provides the handy way to add, layout see [[http://www.nongnu.org/m17n/manual-en/index.html][tutorial]].
 
-  | Layout | Description                                       |
-  |--------+---------------------------------------------------|
-  | lipi   | lipi (लिपि) is designed for programmer/localizers |
-  # | rom-imp | improvement with 99% backward compatibility       |
+  | Layout  | Description                                       |
+  |---------+---------------------------------------------------|
+  | lipi    | lipi (लिपि) is designed for programmer/localizers |
+  | rom-imp | improvement with 99% backward compatibility       |
 
 
 ** Why ?
@@ -50,10 +50,10 @@ Nepali input method variant for ibus-m17n.
 
 ** Design
 
-   | Layout | Control Char | phonetic | visual | vowel | remap |
-   |--------+--------------+----------+--------+-------+-------|
-   | lipi   |            3 |       13 |      5 |     8 |    10 |
-   # | rom-imp |   3 |       12 |      5 |     8 |     0 |
+   | Layout  | Control Char | phonetic | visual | vowel | remap |
+   |---------+--------------+----------+--------+-------+-------|
+   | lipi    |            2 |       13 |      5 |     8 |    10 |
+   | rom-imp |            2 |       12 |      5 |     8 |     0 |
 
 
 *** escape sequence
