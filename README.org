@@ -52,8 +52,8 @@ Nepali input method variant for ibus-m17n.
 
    | Layout  | Control Char | phonetic | visual | vowel | remap |
    |---------+--------------+----------+--------+-------+-------|
-   | lipi    |            2 |       13 |      5 |     8 |    10 |
-   | rom-imp |            2 |       12 |      5 |     8 |     0 |
+   | lipi    |            2 |       14 |      5 |     8 |    10 |
+   | rom-imp |            2 |       14 |      5 |     8 |     0 |
 
 
 *** escape sequence
@@ -99,10 +99,11 @@ Nepali input method variant for ibus-m17n.
     |  7 | द्य     | *sequence*: 'd/y' | *sequence*: dhyaa          |
     |  8 | ङ      | *key*: '<'        | *sequence*: naa            |
     |  9 | ळ      | *key*: 'L'        | *sequence*: 'lll'          |
-    | 10 | ऋ      | *key*: 'Z'        | *sequence*: 'rii'          |
-    | 11 | ॠ      | None              | *sequence*: 'riii'         |
-    | 12 | ऌ      | None              | *sequence*: 'lree'         |
-    | 13 | ॡ      | None              | *sequence*: 'lreee'        |
+    | 10 | ॐ      | *key*: '\'        | *sequence*: 'oom'          |
+    | 11 | ऋ      | *key*: 'Z'        | *sequence*: 'rii'          |
+    | 12 | ॠ      | None              | *sequence*: 'riii'         |
+    | 13 | ऌ      | None              | *sequence*: 'lree'         |
+    | 14 | ॡ      | None              | *sequence*: 'lreee'        |
 
 
 *** Visual Similar Corrections
@@ -138,7 +139,7 @@ Nepali input method variant for ibus-m17n.
     |   |        | अ  +  ा +  ै     |
     |   |        | अ  +  ा +  े +  े |
     | 4 | ऐ      | ए + े            |
-    | 5 | ॐ      | ऊ + ँ            |
+    | 5 | ॐ      | ऊ + ँ + ँ         |
 
 
 *** Vowels
@@ -181,6 +182,7 @@ Nepali input method variant for ibus-m17n.
      | 1 | ओ      | अ +  े    |
      | 2 | औ      | अ +  ै    |
      | 3 | ङ      | ड  + ं + ं |
+     | 4 | ं ं ँ         |          |
 
 *** remap
 
@@ -201,7 +203,7 @@ Nepali input method variant for ibus-m17n.
     |  7 | ऋ      | Z            |       |          |         | rii        |
     |  8 | ङ      | <            |       | ड  + ं + ं |         | naa        |
     |  9 | ष      | z            | Z     |          |         |            |
-    | 10 | ॐ      | \            |       | ऊ + ँ     |         |            |
+    | 10 | ॐ      | \            |       | ऊ + ँ + ँ  |         |            |
 
 
 * Cross Map Hacks

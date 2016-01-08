@@ -114,7 +114,10 @@
 
   ;; rarely used symbols
   ("~~" ?ऽ)
-  ("YV" ?ॐ) ("YYV" ?ॐ) ("UUV" ?ॐ)
+  ("oom" ?ॐ) 
+  ("YV" "उँ") ("YVV" ?ॐ)
+  ("YYV" "ऊँ") ("YYVV" ?ॐ)
+  ("UUV" "ऊँ") ("UUVV" ?ॐ)
   ("lr" "लर") ("lre" "लरे ") ("lree" ?ऌ) ("lreee" ?ॡ)
   ("ri" "रि") ("rii" ?ऋ) ("riii" ?ॠ)
   ("ll" "लल") ("lll" ?ळ)
@@ -127,10 +130,17 @@
   ;; ज्ञ
   ("gy" "गय") ("gya" "गया") ("gyaa" "ज्ञ")
   ("jy" "जय") ("jya" "जया") ("jyaa" "ज्ञ")
-))
+  ))
+
+(map (escape))
 
 (state
-  (init (trans)))
+ (init
+  (trans
+   (cond (= @-2 "\\")
+         (insert "boom")
+         )
+   )))
 
 ;; Local Variables:
 ;; mode: lisp
