@@ -4,7 +4,7 @@
 #+OPTIONS: num:t toc:nil
 #+STARTUP: showall
 
-Nepali input method variant for ibus-m17n.
+Nepali input method variants for ibus-m17n.
 
 * Getting It
 
